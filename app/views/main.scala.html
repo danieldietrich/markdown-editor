@@ -22,7 +22,8 @@
 
 			(function( $ ) {
 				$.fn.edit = function(handler) {
-					this.live('blur keyup paste', function() { 
+					// TODO: need 'focus' here for initialization on page-load only
+					this.live('blur focus keyup paste', function() { 
 						$(this).trigger('change')
 					}).live('change', handler)
 				}
@@ -30,12 +31,12 @@
 
 			$(document).ready(function() {
 				$('#code').elastic()
-				$('#code').focus()
 				$('#code').edit(function(event) {
 					$('#preview').html(
 						marked($(event.target).val())
 					)
 				})
+				$('#code').focus()
 			})
 
 		</script>
