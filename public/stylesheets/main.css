@@ -130,23 +130,23 @@ body {
 	padding: 0 !important;
 }
 
-code {
+.preview code {
 	background-color: #f2f2eb !important;
 	color: #7f7f7a !important;
 	border: 1px solid #bfbfba !important;
 }
 
-hr {
+.preview hr {
 	border-top: 1px solid #bfbfba !important;
 	border-bottom: 1px solid #f2f2eb !important;
 }
 
-pre {
+.preview pre {
 	background-color: #f2f2eb !important;
 	color: #7f7f7a !important;
 	border: 1px solid #bfbfba !important;
 }
 
-pre code {
+.preview pre code {
 	border: none !important;
 }
