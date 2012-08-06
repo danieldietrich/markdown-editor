@@ -130,12 +130,17 @@ body {
 	padding: 0 !important;
 }
 
-pre {
-	background-color: #fefbf3;
-}
-
 code {
 	background-color: #fefbf3;
 	color: #808fa9 !important;
 	border: 1px solid #666;
+}
+
+hr {
+	border-top: 1px solid #bfbfba !important;
+	border-bottom: 1px solid #f2f2eb !important;
+}
+
+pre {
+	background-color: #fefbf3;
 }
