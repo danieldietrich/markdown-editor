@@ -45,7 +45,7 @@
 	font-family: 'Pinyon Script', cursive;
 }
 
-.code {
+.markdown-source {
 	padding-left: 20px;
 }
 
@@ -85,7 +85,7 @@
 	min-height: 100%;
 }
 
-.preview {
+.markdown-formatted {
 
 	background-color: #dfdfd9;
 	box-shadow: -2px 0 6px 0 #dddddd;
@@ -100,10 +100,10 @@
 }
 
 @media (max-width: 767px) {
-	.code {
+	.markdown-source {
 		padding-right: 20px;
 	}
-	.preview {
+	.markdown-formatted {
 		display: none !important;
 	}
 }
@@ -130,23 +130,73 @@ body {
 	padding: 0 !important;
 }
 
-.preview code {
+.markdown-formatted blockquote {
+	border-left: 5px solid #c8c8c3 !important;
+	color: #787873 !important;
+}
+
+.markdown-formatted code {
 	background-color: #f2f2eb !important;
 	color: #7f7f7a !important;
 	border: 1px solid #bfbfba !important;
 }
 
-.preview hr {
+.markdown-formatted dl dd {
+	margin: 0 0 15px !important;
+	padding: 0 15px !important;
+}
+
+.markdown-formatted dl dt {
+	font-size: 14px !important;
+	font-weight: bold !important;
+	font-style: italic !important;
+	padding: 0 !important;
+	margin: 15px 0 5px !important;
+}
+
+.markdown-formatted h2 {
+	border-bottom: 1px solid #bfbfba !important;
+}
+
+.markdown-formatted h1,
+.markdown-formatted h2,
+.markdown-formatted h3,
+.markdown-formatted h4,
+.markdown-formatted h5,
+.markdown-formatted h6 {
+	margin: 20px 0 10px !important;
+}
+
+.markdown-formatted hr {
 	border-top: 1px solid #bfbfba !important;
 	border-bottom: 1px solid #f2f2eb !important;
 }
 
-.preview pre {
+.markdown-formatted pre {
 	background-color: #f2f2eb !important;
 	color: #7f7f7a !important;
 	border: 1px solid #bfbfba !important;
 }
 
-.preview pre code {
+.markdown-formatted pre code {
 	border: none !important;
+}
+
+.markdown-formatted table {
+	margin: 15px 0 !important;
+}
+
+.markdown-formatted table th,
+.markdown-formatted table td {
+	border: 1px solid #bfbfba !important;
+	padding: 6px 13px;
+}
+
+.markdown-formatted table tr {
+	background-color: #dfdfd9 !important;
+	border-top: 1px solid #bfbfba !important;
+}
+
+.markdown-formatted table tr:nth-child(2n) {
+	background-color: #efefe9 !important;
 }

@@ -1,21 +1,21 @@
-@()
+@(sample: String)
 
 @main("markdown-editor") {
 		<div class="row-fluid stretch-vertically">
 
 			<!-- markdown editor -->
-			<div class="span6 code">
+			<div class="span6 markdown-source">
 				<h1 class="title">
 					<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">markdown</a>
 					<span class="gfm">
 						(<a href="http://github.github.com/github-flavored-markdown" target="_blank">github flavored</a>)
 					</span>
 				</h1>
-				<form><textarea id="code" spellcheck="false"></textarea></form>
+				<form><textarea id="code" spellcheck="false">@sample</textarea></form>
 			</div>
 
 			<!-- html preview -->
-			<div class="span6 preview">
+			<div class="span6 markdown-formatted">
 				<div class="strip"></div>
 				<h1 class="title">html</h1>
 				<div id="preview"></div>
