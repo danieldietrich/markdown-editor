@@ -1,0 +1,76 @@
+/*-- Variables --*/
+
+@cheatsheet-grip: 10px;
+@cheatsheet-width: 270px;
+@space-x: 20px;
+@space-y: 10px;
+@title-height: 36px;
+@transition-speed: .1s;
+
+/*-- Classes --*/
+
+body {
+    margin: 0;
+}
+
+.container {
+    .Position(absolute, 0, 0, 0, 0);
+}
+
+.title {
+    padding: @space-y @space-x 0;
+}
+
+.markdown {
+    .Position(absolute, 0, 50%, 0, @cheatsheet-grip);
+    .content {
+        .Content;
+    }
+    textarea {
+        outline: 0;
+        margin: 0;
+        resize: none;
+    }
+}
+
+.html {
+    .Position(absolute, 0, 0, 0, 50%);
+    .content {
+        .Content;
+    }
+    .strip {
+        .Position(absolute, 0, auto, 0, 0);
+        width: 1px;
+    }
+}
+
+.cheatsheet {
+    .Position(fixed, 0, auto, 0, -(@cheatsheet-width + 2 * @space-x) + @cheatsheet-grip);
+    width: @cheatsheet-width;
+    overflow:auto;
+    padding: @space-y @space-x;
+    transition: left @transition-speed;
+    &:hover {
+        left: 0;
+    }
+}
+
+/*-- Mixins --*/
+
+.Position(@position, @top, @right, @bottom, @left) {
+    position: @position;
+    top: @top;
+    right: @right;
+    bottom: @bottom;
+    left: @left;
+}
+
+.ScrollVertical {
+    overflow: auto;
+}
+
+.Content {
+    margin: 0 @space-x @space-y*2;
+    .Position(absolute, @title-height, 0, 0, 0);
+    .ScrollVertical;
+}

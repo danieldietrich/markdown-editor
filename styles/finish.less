@@ -1,0 +1,47 @@
+/*-- Classes --*/
+
+.title {
+    /*box-shadow: 0 2px 6px 0 #dddddd;*/
+}
+
+.markdown {
+    background-color: #f2f2eb;
+    .content {
+        background-color: #6e6b63;
+        border: 1px solid rgba(255,255,255,.5);
+        border-radius: 4px;
+        color: #cecbc3;
+        font-family: Menlo, Monaco, 'Courier New', monospace;
+        font-size: 12px;
+        line-height: 20px;
+        outline: none;
+        padding: 2px 4px;
+        text-shadow: 0 1px black;
+    }
+    textarea {
+        box-shadow: none;
+        &:focus {
+            box-shadow: 0 1px 4px rgba(0,0,0,.3);
+        }
+    }
+}
+
+.html {
+    background-color: #dfdfd9;
+    box-shadow: -2px 0 6px 0 #dddddd;
+    .content {
+        border-top: 1px dotted #ccc;
+        border-bottom: 1px dotted #ccc;
+    }
+    .strip {
+        background-color: #f2f2eb;
+        border-left: 1px solid #bfbfba;
+    }
+}
+
+.cheatsheet {
+    background-color: rgba(255,255,255,0.9);
+    border-right: solid 1px #999;
+    box-shadow: 2px 0 6px 0 #dddddd;
+    opacity: 0.9;
+}
