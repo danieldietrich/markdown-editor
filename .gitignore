@@ -1,13 +1,1 @@
-bin
-logs
-project/project
-project/target
-target
-tmp
-.cache
-.classpath
-.history
-.project
-.settings
-.target
 .DS_Store
