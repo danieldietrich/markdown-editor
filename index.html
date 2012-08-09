@@ -5,6 +5,7 @@
         <title>markdown-editor</title>
         <link rel="shortcut icon" type="image/png" href="images/favicon.png">
         <link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="libs/highlight/styles/default.css">
         <link rel="stylesheet/less" type="text/css" href="styles/markdown-editor.less">
         <script type="text/javascript" src="scripts/less-1.3.0.min.js"></script>
     </head>
@@ -24,8 +25,8 @@
                 <div class="strip"></div>
                 <div class="header">
                     <div class="btn-group" data-toggle="buttons-radio">
-                        <button class="btn active" slide="0">Preview</button>
-                        <button class="btn" slide="1">&lt;Markup/&gt;</button>
+                        <button class="btn active" slide="0">HTML</button>
+                        <button class="btn" slide="1">&lt;html/&gt;</button>
                     </div>
                 </div>
                 <div id="slides" class="content">
@@ -34,7 +35,7 @@
                             <div id="preview"></div>
                         </div>
                         <div class="slide">
-                            <pre id="markup" class="language-html"></pre>
+                            <pre><code id="markup" class="language-html"></code></pre>
                         </div>
                     </ul>
                 </div>
@@ -47,12 +48,11 @@
         <script src="scripts/marked.js" type="text/javascript"></script>
         <script src="libs/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="libs/highlight/highlight.pack.js"></script>
-        <script>hljs.initHighlightingOnLoad()</script>
         <script>
 
             (function($) {
                 $.fn.edit = function(handler) {
-                    this.live('focus blur keyup paste', function() { 
+                    this.live('blur keyup paste', function() { 
                         $(this).trigger('change')
                     }).live('change', handler)
                 }
@@ -70,7 +70,7 @@
                     var markup = marked($(event.target).val())
                     $('#preview').html(markup)
                     $('#markup').text(markup)
-                    $('#markup').each(function(i, e) {
+                    $('#preview pre > code, #markup').each(function(i, e) {
                         hljs.highlightBlock(e)
                     })
                 })
