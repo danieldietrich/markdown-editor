@@ -1,3 +1,4 @@
+/* LAYOUT: element space, size, position, overflow & white-space handling */
 
 @cheatsheet-grip: 10px;
 @cheatsheet-space-x: 20px;
@@ -47,6 +48,8 @@ textarea {
     .Position(absolute, 0, 50%, 0, @cheatsheet-grip);
     .content {
         .Content;
+        outline: none;
+        padding: 2px 4px;
     }
 }
 
@@ -73,9 +76,9 @@ textarea {
         .slide {
             .Position(absolute, 0, 0, 0, 0);
             display: inline-block;
-            width: 50%;
-            height: 100%;
             float: left;
+            height: 100%;
+            width: 50%;
             #preview {
                 .Position(absolute, 0, auto, 0, 0);
                 overflow: auto;
@@ -85,6 +88,7 @@ textarea {
             #markup {
                 .Position(absolute, 0, auto, 0, 100%);
                 overflow: auto;
+                white-space: pre;
                 width: 100%;
             }
         }
