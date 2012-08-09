@@ -20,6 +20,12 @@ body {
     margin: 0;
 }
 
+textarea {
+    outline: 0;
+    margin: 0;
+    resize: none;
+}
+
 .container {
     .Position(absolute, 0, 0, 0, 0);
 }
@@ -37,11 +43,6 @@ body {
     .content {
         .Content;
     }
-    textarea {
-        outline: 0;
-        margin: 0;
-        resize: none;
-    }
 }
 
 .html {
@@ -53,8 +54,35 @@ body {
         .Position(absolute, 0, auto, 0, 0);
         width: 1px;
     }
-    #markup {
-        overflow-x: auto;
+}
+
+#slides {
+    overflow: hidden;
+    .inner {
+        .Position(absolute, 0, auto, 0, auto);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        transition: left .2s;
+        width: 200%;
+        .slide {
+            .Position(absolute, 0, 0, 0, 0);
+            display: inline-block;
+            width: 50%;
+            height: 100%;
+            float: left;
+            #preview {
+                .Position(absolute, 0, auto, 0, 0);
+                overflow: auto;
+                width: 100%;
+                z-index: 1; // this does the trick
+            }
+            #markup {
+                .Position(absolute, 0, auto, 0, 100%);
+                overflow: auto;
+                width: 100%;
+            }
+        }
     }
 }
 
@@ -86,5 +114,4 @@ body {
 .Content {
     margin: 0 @content-space-x @content-space-y;
     .Position(absolute, @header-height + @content-space-y, 0, 0, 0);
-    .ScrollVertical;
 }

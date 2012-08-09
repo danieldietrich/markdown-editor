@@ -18,9 +18,7 @@
                         (<a href="http://github.github.com/github-flavored-markdown" target="_blank">github flavored</a>)
                     </span>
                 </div>
-                <form>
-                    <textarea id="code" class="content" spellcheck="false"></textarea>
-                </form>
+                <textarea id="code" class="content" spellcheck="false"></textarea>
             </div>
             <div class="html">
                 <div class="strip"></div>
@@ -30,14 +28,14 @@
                         <button class="btn" slide="1">&lt;Markup/&gt;</button>
                     </div>
                 </div>
-                <div id="zlidr" class="content">
-                    <ul>
-                        <li>
+                <div id="slides" class="content">
+                    <div class="inner">
+                        <div class="slide">
                             <div id="preview"></div>
-                        </li>
-                        <li>
-                            <div id="markup"></div>
-                        </li>
+                        </div>
+                        <div class="slide">
+                            <textarea id="markup" spellcheck="false" readonly="readonly"></textarea>
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -186,7 +184,6 @@ Violets are blue.
         </div>
 
         <script src="scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
-        <script src="scripts/jquery-zlidr.js" type="text/javascript"></script>
         <script src="scripts/prefixfree.min.js" type="text/javascript"></script>
         <script src="scripts/marked.js" type="text/javascript"></script>
         <script src="libs/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -203,9 +200,8 @@ Violets are blue.
             $(document).ready(function() {
                 $('body').on('click', '.btn', function(event) {
                     var slide = $(event.target).attr('slide')
-                    $('#zlidr').zlidr('go', slide)
+                    $('#slides .inner').css('left', Number(slide)*-100+'%')
                 })
-                $('#zlidr').zlidr('init')
                 $('#code').edit(function(event) {
                     var markup = marked($(event.target).val())
                     $('#preview').html(markup)
