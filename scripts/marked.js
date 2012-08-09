@@ -550,7 +550,7 @@ function tok() {
 
       return '<pre><code'
         + (token.lang
-        ? ' class="lang-'
+        ? ' class="language-'
         + token.lang
         + '"'
         : '')
