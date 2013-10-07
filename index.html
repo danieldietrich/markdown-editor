@@ -7,7 +7,7 @@
         <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
         <link href="libs/prism/prism.css" rel="stylesheet" />
         <link href="styles/markdown-editor.less" rel="stylesheet/less" />
-        <script src="scripts/less-1.3.0.min.js"></script>
+        <script src="scripts/less-1.4.1.min.js"></script>
         <style>
             #forkme { opacity: .3; transition: opacity 1s; }
             #forkme:hover { opacity: 1; }
@@ -49,7 +49,7 @@
 
         <a id="forkme" href="https://github.com/danieldietrich/markdown-editor"><img style="position: absolute; top: 0; right: 0; border: 0;" src="images/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
 
-        <script src="scripts/jquery-1.8.0.min.js"></script>
+        <script src="scripts/jquery-1.10.2.min.js"></script>
         <script src="scripts/prefixfree.min.js"></script>
         <script src="scripts/marked.js"></script>
         <script src="libs/bootstrap/js/bootstrap.min.js"></script>
@@ -58,9 +58,7 @@
 
             (function($) {
                 $.fn.edit = function(handler) {
-                    this.live('blur keyup paste', function() { 
-                        $(this).trigger('change')
-                    }).live('change', handler)
+                    this.on('blur keyup paste', handler)
                 }
             })(jQuery)
 
@@ -73,7 +71,8 @@
                     $('#slides .inner').css('left', Number(slide)*-100+'%')
                 })
                 $('#code').edit(function(event) {
-                    var markup = marked($(event.target).val())
+                    var text = $(event.target).val()
+                    var markup = marked(text)
                     $('#preview').html(markup)
                     $('#markup').text(markup)
                     $('#preview pre > code, #markup').each(function(_, element) {
