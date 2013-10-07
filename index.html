@@ -70,6 +70,7 @@
                     var slide = $(event.target).attr('slide')
                     $('#slides .inner').css('left', Number(slide)*-100+'%')
                 })
+                var LOCAL_STORAGE_KEY= 'markdown-editor#current'
                 $('#code').edit(function(event) {
                     var text = $(event.target).val()
                     var markup = marked(text)
@@ -78,7 +79,9 @@
                     $('#preview pre > code, #markup').each(function(_, element) {
                         Prism.highlightElement(element)
                     })
+                    localStorage.setItem(LOCAL_STORAGE_KEY, text)
                 })
+                $('#code').text(localStorage.getItem(LOCAL_STORAGE_KEY))
                 $('#code').focus()
             })
 
