@@ -16,23 +16,9 @@
     <body>
 
         <div class="container">
-            <div class="markdown">
-                <div class="header">
-                    <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">markdown edtior</a>
-                    <span class="script">
-                        (<a href="http://github.github.com/github-flavored-markdown" target="_blank">github flavored</a>)
-                    </span>
-                </div>
-                <textarea id="code" class="content" spellcheck="false"></textarea>
-            </div>
+            <div id="code" class="markdown" contenteditable="true" spellcheck="false"></div>
             <div class="html">
                 <div class="strip"></div>
-                <div class="header">
-                    <div class="btn-group" data-toggle="buttons-radio">
-                        <button class="btn active" slide="0">HTML</button>
-                        <button class="btn" slide="1">&lt;html/&gt;</button>
-                    </div>
-                </div>
                 <div id="slides" class="content">
                     <div class="inner">
                         <div class="slide">
@@ -44,10 +30,18 @@
                     </div>
                 </div>
             </div>
-            <div id="cheatsheet"></div>
+            <div id="menu">
+                <div>
+                    <div class="btn-group" data-toggle="buttons-radio">
+                        <button class="btn active" slide="0">HTML</button>
+                        <button class="btn" slide="1">&lt;html/&gt;</button>
+                    </div>
+                </div>
+                <div id="cheatsheet"></div>
+            </div>
         </div>
 
-        <a id="forkme" href="https://github.com/danieldietrich/markdown-editor"><img style="position: absolute; top: 0; right: 0; border: 0;" src="images/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+        <a id="forkme" href="https://github.com/danieldietrich/markdown-editor"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10;" src="images/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
 
         <script src="scripts/jquery-1.10.2.min.js"></script>
         <script src="scripts/prefixfree.min.js"></script>
@@ -63,6 +57,11 @@
             })(jQuery)
 
             $(document).ready(function() {
+                /*
+                $('#code').on('scroll', function () {
+                    $('#preview').scrollTop($(this).scrollTop())
+                })
+                */
                 $.get('cheatsheet.html', function(data) {
                     $('#cheatsheet').html(data)
                 })
@@ -72,7 +71,7 @@
                 })
                 var LOCAL_STORAGE_KEY= 'markdown-editor#current'
                 $('#code').edit(function(event) {
-                    var text = $(event.target).val()
+                    var text = strip(document.getElementById('code').innerText);
                     var markup = marked(text)
                     $('#preview').html(markup)
                     $('#markup').text(markup)
@@ -83,10 +82,17 @@
                 })
                 var backup = localStorage.getItem(LOCAL_STORAGE_KEY)
                 if (backup !== null) {
-                    $('#code').text(backup)
+                    // $('#code').text(backup)
+                    document.getElementById('code').innerText = backup
                 }
                 $('#code').focus()
             })
+
+            function strip(html) {
+                var tempDiv = document.createElement("DIV")
+                tempDiv.innerHTML = html
+                return tempDiv.innerText
+            }
 
         </script>
     </body>

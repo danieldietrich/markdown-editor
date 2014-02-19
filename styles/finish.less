@@ -1,47 +1,22 @@
 /* FINISH: borders, colors, font & text formats */
 
-@header-color: #326a78;
-
-.header {
-    background-color: rgba(0,0,0,.1);
-    box-shadow: 0 2px 6px 0 #bbb;
-    color: @header-color;
-    font-family: Exo, sans-serif;
-    font-size: 22px;
-    font-weight: normal;
-    line-height: 22px;
-    text-shadow: rgba(255,255,255,.8) 0 1px 0;
-    a {
-        &:active, &:hover, &:link, &:visited {
-            color: @header-color;
-        }
-    }
-    .script {
-        font-family: 'Pinyon Script', cursive;
-    }
-}
-
 .markdown {
-    background-color: #f2f2eb;
-    .content {
-        background-color: #6e6b63;
-        border: 1px solid rgba(255,255,255,.5);
-        border-radius: 4px;
-        box-shadow: none;
-        &:focus {
-            box-shadow: 0 1px 4px rgba(0,0,0,.3);
-        }
+    background-color: #6e6b63;
+    &:focus {
         color: #cecbc3;
-        font-family: Menlo, Monaco, 'Courier New', monospace;
-        font-size: 12px;
-        line-height: 20px;
-        text-shadow: 0 1px black;
     }
+    color: #9e9b93;
+    font-family: Menlo, Monaco, 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 20px;
+    text-shadow: 0 1px black;
+    z-index: 2;
 }
 
 .html {
     background-color: #dfdfd9;
     box-shadow: -2px 0 6px 0 #dddddd;
+    z-index: 1;
     .strip {
         background-color: #f2f2eb;
         border-left: 1px solid #bfbfba;
@@ -49,17 +24,20 @@
     #preview {
         border-top: 1px dotted #ccc;
         border-bottom: 1px dotted #ccc;
+        padding: 9px 13px;
     }
     #markup {
         font-family: Menlo, Monaco, 'Courier New', monospace;
         font-size: 12px;
         line-height: 20px;
+        padding: 9px 13px;
     }
 }
 
-#cheatsheet {
+#menu {
     background-color: rgba(255,255,255,.9);
     border-right: solid 1px #999;
     box-shadow: 2px 0 6px 0 #dddddd;
     opacity: .9;
+    z-index: 3;
 }
